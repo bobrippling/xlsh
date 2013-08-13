@@ -12,8 +12,14 @@ py=$(($screen_h/2 - 120))
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin
 export PATH
 if ! which xlsh; then
-  xmessage -center "xlsh cannot be found in PATH!"
-  exit 1
+	XLSH=/usr/local/sbin/xlsh
+	if ! [ -f "$XLSH" ]
+	then
+		xmessage -center "$0: xlsh cannot be found in PATH ($PATH)"
+		exit 1
+	fi
+else
+	XLSH="`which xlsh`"
 fi
 
 xrdb -merge "$XRESFILE"
@@ -41,4 +47,4 @@ if which xdotool; then
 else
   echo >&2 "$0: no xdotool"
 fi
-exec $TERMINAL -g 80x15+$px+$py -e $(which xlsh)
+exec $TERMINAL -g 80x15+$px+$py -e $XLSH
