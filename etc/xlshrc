@@ -43,4 +43,9 @@ else
   echo >&2 "$0: no xdotool"
 fi
 
+xset r rate 200 25
+xset m 4 1
+xset s off
+setxkbmap gb
+
 exec $TERMINAL -e $XLSH
