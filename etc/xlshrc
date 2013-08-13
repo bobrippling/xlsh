@@ -17,7 +17,7 @@ else
 	XLSH="`which xlsh`"
 fi
 
-xrdb -merge "$XRESFILE"
+xrdb -override "$XRESFILE"
 xsetroot -solid "$BGCOLOR"
 if which xdotool; then
   # There's a race condition to completion between this job focusing
