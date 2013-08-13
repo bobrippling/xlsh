@@ -122,10 +122,6 @@ int main(int argc, char** argv)
     xlshd_daemonize(argv[0]);
     libxlsh_pid_lock(XLSHD_PIDFILE, getpid(), XLSH_OVERWRITE);
   }
-  
-  stdin  = freopen("/dev/null", "r", stdin);
-  stdout = freopen("/dev/null", "w", stdout);
-  stderr = freopen("/dev/null", "w", stderr);
 
   libxlsh_proc_sigmask();
 
