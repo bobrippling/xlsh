@@ -4,11 +4,6 @@ TERMINAL=xterm
 XRESFILE=/etc/xlsh/Xresources
 BGCOLOR="rgb:1E/23/1F"
 
-screen_w=$(xwininfo -root | grep Width | cut -f2 -d':')
-screen_h=$(xwininfo -root | grep Height | cut -f2 -d':')
-px=$(($screen_w/2 - 240))
-py=$(($screen_h/2 - 120))
-
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin
 export PATH
 if ! which xlsh; then
@@ -47,4 +42,5 @@ if which xdotool; then
 else
   echo >&2 "$0: no xdotool"
 fi
-exec $TERMINAL -g 80x15+$px+$py -e $XLSH
+
+exec $TERMINAL -e $XLSH
