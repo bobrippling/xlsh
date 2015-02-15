@@ -50,6 +50,7 @@ install: installdirs
 	$(INSTALL_DATA) etc/xlshrc $(DESTDIR)$(sysconfdir)/xlsh
 	$(INSTALL_DATA) etc/Xresources $(DESTDIR)$(sysconfdir)/xlsh
 	$(INSTALL_DATA) etc/pam.d/xlshd $(DESTDIR)$(sysconfdir)/pam.d
+	$(INSTALL_PROGRAM) deb/xlshd $(DESTDIR)$(sysconfdir)/init.d
 
 install-strip: installdirs
 	$(INSTALL_PROGRAM_STRIP) xlsh $(DESTDIR)$(sbindir)
@@ -65,6 +66,7 @@ installdirs:
 uninstall:
 	rm -f ${DESTDIR}$(sbindir)/xlsh
 	rm -f ${DESTDIR}$(sbindir)/xlshd
+	rm -f $(DESTDIR)$(sysconfdir)/init.d/xlshd
 
 clean:
 	rm -f $(PROGRAMS)
