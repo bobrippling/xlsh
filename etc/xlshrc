@@ -1,10 +1,10 @@
 #!/bin/sh
 # XLSH default startup script for X11.
-TERMINAL=xterm
+TERMINAL=st
 XRESFILE=/etc/xlsh/Xresources
 BGCOLOR="rgb:1E/23/1F"
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 export PATH
 if ! which xlsh; then
 	XLSH=/usr/local/sbin/xlsh
